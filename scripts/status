@@ -1,0 +1,5 @@
+BASEDIR=..
+STACK=$(jq -r 'keys[] as $k | "\($k)"' $BASEDIR/cdk-outputs.json)
+aws cloudformation describe-stacks --stack-name $STACK
+
+

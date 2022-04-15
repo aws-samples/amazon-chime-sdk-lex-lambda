@@ -1,0 +1,2 @@
+LAMBDALOG=$(jq -r .[].logGroup ./cdk-outputs.json)
+aws logs tail $LAMBDALOG --follow --format short

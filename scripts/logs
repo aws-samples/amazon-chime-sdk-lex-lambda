@@ -1,0 +1,2 @@
+jq .[].logGroup ./cdk-outputs.json
+

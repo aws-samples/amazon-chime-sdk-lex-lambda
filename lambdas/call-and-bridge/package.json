@@ -1,0 +1,40 @@
+{
+  "name": "call-and-bridge",
+  "version": "0.1.0",
+  "license": "MIT",
+  "bin": {
+    "call-and-bridge": "bin/call-and-bridge.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "clean": "scripts/clean",
+    "deploy": "yarn install && yarn build && cdk deploy --outputs-file ./cdk-outputs.json --hotswap",
+    "destroy": "cdk destroy --force",
+    "number": "scripts/number",
+    "lambda": "scripts/lambda",    
+    "active": "scripts/active",
+    "swap": "scripts/swap && scripts/active",
+    "status": "scripts/status",
+    "versions": "scripts/versions",
+    "invoke": "scripts/invoke",
+    "logs": "scripts/logs"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.10",
+    "@types/node": "10.17.27",
+    "aws-cdk": "2.12.0",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.2.0",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@aws-sdk/client-chime": "^3.52.0",
+    "aws-cdk-lib": "2.12.0",
+    "constructs": "^10.0.0",
+    "esbuild": "^0.14.23",
+    "source-map-support": "^0.5.16"
+  }
+}

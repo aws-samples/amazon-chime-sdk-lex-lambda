@@ -1,0 +1,1 @@
+jq -r .[].phoneNumber ./cdk-outputs.json | awk -F, '{print substr($0,1,5) "-" substr($0,6,3) "-" substr($0,9,4)}'

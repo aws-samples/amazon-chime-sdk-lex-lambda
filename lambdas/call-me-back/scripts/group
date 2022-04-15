@@ -1,0 +1,3 @@
+BASEDIR=.
+GROUP=$(jq -r .[].logGroup $BASEDIR/cdk-outputs.json)  
+echo $GROUP

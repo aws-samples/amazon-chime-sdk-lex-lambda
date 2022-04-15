@@ -1,0 +1,23 @@
+#!/bin/bash
+BASEDIR=../..
+SMA_ID=$(jq -r .[].smaId $BASEDIR/cdk-outputs.json)  # parent CDK folder
+ACTIVE=$(aws chime get-sip-media-application --sip-media-application-id  $SMA_ID | jq -r .[].Endpoints[0].LambdaArn)
+echo "Active lambda is: $ACTIVE"
+
+PARENT=$(jq -r .[].smaHandlerArn $BASEDIR/cdk-outputs.json) 
+LOCAL=$(jq -r .[].smaHandlerArn ./cdk-outputs.json) 
+DONE="There is an error, please check the lambda associations"
+
+echo "PARENT lambda:    $PARENT"
+echo "LOCAL lambda:     $LOCAL"
+
+if [ $ACTIVE == $LOCAL ]; then
+  ENDPOINTS="[{\"LambdaArn\": \"$PARENT\"}]"
+  DONE="updating SMA $SMA_ID to use lambda $PARENT"
+  aws chime update-sip-media-application  --sip-media-application-id $SMA_ID --endpoints "$ENDPOINTS"
+else
+  ENDPOINTS="[{\"LambdaArn\": \"$LOCAL\"}]"
+  DONE="updating SMA $SMA_ID to use lambda $LOCAL"
+  aws chime update-sip-media-application  --sip-media-application-id $SMA_ID --endpoints "$ENDPOINTS"
+  echo $DONE
+fi

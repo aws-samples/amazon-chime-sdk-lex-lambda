@@ -1,0 +1,22 @@
+{
+    "SchemaVersion": "1.0",
+    "Sequence": 1,
+    "InvocationEventType": "NEW_INBOUND_CALL",
+    "CallDetails": {
+        "TransactionId": "b5a25427-88f4-4bf6-b4b2-f44659300bdc",
+        "AwsAccountId": "0123456789AB",
+        "AwsRegion": "us-west-2",
+        "SipRuleId": "15109ac0-3434-44cc-9108-d6e92610368c",
+        "SipMediaApplicationId": "766e0891-0fe9-4718-a3a8-15b67842c128",
+        "Participants": [
+            {
+                "CallId": "9ff01357-23c5-4611-9dd3-f05f9d654f70",
+                "ParticipantTag": "LEG-A",
+                "To": "+15053172640",
+                "From": "+14155551212",
+                "Direction": "Inbound",
+                "StartTimeInMilliseconds": "1645321553847"
+            }
+        ]
+    }
+}

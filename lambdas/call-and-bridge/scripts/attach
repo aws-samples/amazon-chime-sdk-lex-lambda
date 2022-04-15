@@ -1,0 +1,6 @@
+BASEDIR=../..
+SMA_ID=$(jq -r .[].smaId $BASEDIR/cdk-outputs.json)  # parent CDK folder
+LAMBDA=$(jq -r .[].smaHandlerArn ./cdk-outputs.json) # this folder
+ENDPOINTS="[{\"LambdaArn\": \"$LAMBDA\"}]"
+echo "updating SMA $SMA_ID to use lambda $LAMBDA"
+aws chime update-sip-media-application  --sip-media-application-id $SMA_ID --endpoints "$ENDPOINTS"

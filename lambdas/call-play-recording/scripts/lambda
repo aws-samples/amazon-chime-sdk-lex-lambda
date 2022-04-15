@@ -1,0 +1,2 @@
+jq .[].smaHandlerName ./cdk-outputs.json
+

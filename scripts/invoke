@@ -1,0 +1,8 @@
+BASEDIR=.
+STACK=$(jq -r 'keys[] as $k | "\($k)"' $BASEDIR/cdk-outputs.json)
+TEMPLATE="$BASEDIR/cdk.out/$STACK.template.json"
+LAMBDA=$(jq .[].smaHandlerName ./cdk-outputs.json)
+echo $TEMPLATE $LAMBDA
+sam local invoke -t $TEMPLATE smaLambda -e $BASEDIR/events/inbound.json | jq .
+
+

@@ -1,0 +1,13 @@
+*.DS_Store
+.envrc
+*.js
+!jest.config.js
+*.d.ts
+node_modules
+*.lock
+cdk-outputs.json
+.envrc
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out

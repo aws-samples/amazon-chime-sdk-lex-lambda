@@ -1,0 +1,3 @@
+aws ssm put-parameter --type String --name "amazon-chime-sdk-lambda-lex-arn" --value "<LEX-ARN-HERE>"
+aws ssm put-parameter --type String --name "amazon-chime-sdk-lambda-lex-welcome" --value "Welcome to AWS Chime SDK Voice Service. Please say what you would like to do.  For example: I'd like to book a room, or, I'd like to rent a car."
+aws ssm put-parameter --type String --name "amazon-chime-sdk-lambda-lex-voice-focus" --value "true" # true to enable
