@@ -1,4 +1,4 @@
-# Connect a Phone Number to an Amazon Lex Chat Bot - NO CODE!
+# Talk on the Phone to an Amazon Lex Chat Bot - NO CODE!
 
 ## Welcome to the Amazon Chime SDK
 
