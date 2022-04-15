@@ -8,7 +8,7 @@ This example lets you build the chat bot totally separately from the telephony. 
 
 YOU DON'T NEED TO WRITE ANY CODE TO USE THIS.  You can just run this script and accept the default area code it chooses for a US based number, build an Amazon Lex Bot and run ONE simple command and your bot is attached to the phone number!  If you want a phone number in a different state or area code, one simple edit to one file is all it takes.  See below for more information.
 
-## What is the Amazon Chime SDK?
+## What is Amazon Chime SDK?
 
 The Amazon Chime SDK is a set of real-time communications components that developers can use to quickly add messaging, audio, video, and screen sharing capabilities to their web or mobile applications.  There are three core parts of the SDK:
 
@@ -18,7 +18,7 @@ The Amazon Chime SDK is a set of real-time communications components that develo
 
 By using the Amazon Chime SDK, developers can help reduce the cost, complexity, and friction of creating and maintaining their own real-time communication infrastructure and services.  In addition, those applications can easily take advantage of advanced voice technologies enabled by machine learning.  [Amazon Voice Focus](https://aws.amazon.com/about-aws/whats-new/2020/08/amazon-chime-introduces-amazon-voice-focus-for-noise-suppression/) for PSTN provides deep learning based noise suppression to reduce unwanted noise on calls.  Use text-to-speech in your application through our native integration to [Amazon Polly](https://aws.amazon.com/polly/) or build real-time phone-call voice chat-bots using native integration with [Amazon Lex](https://aws.amazon.com/lex/).
 
-## What is the Amazon Chime SDK PSTN Audio?
+## What is Amazon Chime SDK PSTN Audio?
 
 With PSTN Audio, developers can build custom telephony applications using the agility and operational simplicity of a serverless AWS Lambda function.  Your Lambda functions control the behavior of phone calls, such as playing voice prompts, collecting digits, recording calls, routing calls to the PSTN and Session Initiation Protocol (SIP) devices using Amazon Chime Voice Connector. The following topics provide an overview and architectural information about the PSTN Audio service, including how to build Lambda functions to control calls. You can read our introduction of the service [here](https://docs.aws.amazon.com/chime/latest/dg/build-lambdas-for-sip-sdk.html).
 
