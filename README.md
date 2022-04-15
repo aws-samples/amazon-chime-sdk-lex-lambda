@@ -1,4 +1,6 @@
-# Amazon Chime SDK Example to Call an Amazon Lex Chat Bot - NO CODE!
+# Connect a Phone Number to an Amazon Lex Chat Bot - NO CODE!
+
+## Welcome to the Amazon Chime SDK
 
 This is a simple example of how to provision telephony resources (e.g. a real phone number) and easily connect it to a chat bot that you can create with [Amazon Lex](https://aws.amazon.com/lex/).  
 
