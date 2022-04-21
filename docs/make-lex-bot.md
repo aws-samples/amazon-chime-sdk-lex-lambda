@@ -15,21 +15,21 @@ Log into the Amazon Lex console in the same region that you deployed the Amazon 
 
 Click "Create Bot" on the right of the Bots panel.  In the new page select "Start with an Example."  
 
-<img src="../../docs/images/create1.png" width="100%" />
+<img src="./images/create1.png" width="100%" />
 
 Scroll down to "Bot Configuration" and enter a name for your bot ("BookTrip" for example).  The name does not matter, it's just for you to track the bot.  You can include an optional description.  Under IAM permissions, select "Create a role with basic Amazon Lex permissions."  Below that, in the section labeled "Children’s Online Privacy Protection Act (COPPA)" select "no" (this example will not need this protection, but for your own bot creation you should select that appropriately).
 
-<img src="../../docs/images/create2.png" width="100%" />
+<img src="./images/create2.png" width="100%" />
 
 
 Scroll down to to "Idle session timeout" and reduce the Session Timeout to 1 minute.  For this demo program we don't need long timeouts.  Skip the Advanced Settings.  Click Next to advance to the next screen.  
 
-<img src="../../docs/images/create3.png" width="100%" />
+<img src="./images/create3.png" width="100%" />
 
 
 On the "Add language to bot" page select the language you desire.  This example assumes English (US).  Under "Voice Interaction" select the voice that you would like.  You can click "Play" to play the test phrase to see if the voice is to your liking.  Leave the rest of the defaults and click Done.
 
-<img src="../../docs/images/create4.png" width="100%" />
+<img src="./images/create4.png" width="100%" />
 
 
 You will now move to the "Intents" section.  Scroll down to "Fulfillment" and add the following text to "On successful fulfillment":
@@ -43,7 +43,7 @@ Scroll down to "Closing responses" and add the following text to "Message":
 ```bash
 Goodbye!
 ```
-<img src="../../docs/images/create5.png" width="100%" />
+<img src="./images/create5.png" width="100%" />
 
 
 Skip down to the bottom and click the orange "Save Intent" button.  Then click on the "Build" button.  It will take a few moments to build the bot.  When it completes you can test the bot using the console, if you desire.
@@ -134,7 +134,7 @@ After doing a 'yarn deploy;yarn swap' calls to that number will cause Lex will s
 
 ## Operation
 
-This example adds more actions to what we learned in the ["Call and Bridge Call" lesson](../call-and-bridge/README.md).  The NEW_INBOUND_CALL event arrives and is processed the same way.  We enable Voice Focus (which will enhance the ability of Lex to understand words) and then immediately hand the incoming call off to the bot you send a "StartBotConversation" action.  An example of that action looks like this:
+This example adds more actions to what we learned in the ["Call and Bridge Call" lesson](../lambdas/call-and-bridge/README.md).  The NEW_INBOUND_CALL event arrives and is processed the same way.  We enable Voice Focus (which will enhance the ability of Lex to understand words) and then immediately hand the incoming call off to the bot you send a "StartBotConversation" action.  An example of that action looks like this:
 
 ```json
 {
