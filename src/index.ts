@@ -56,12 +56,22 @@ async function startBot(event: any) {
   const lexArnName = process.env.LEX_ARN_NAME;
   const lexWelcomeName = process.env.WELCOME_NAME;
   const voiceFocusName = process.env.VF_NAME;
+
+  console.log("lexArnName:", lexArnName);
+  console.log("lexWelcomeName:", lexWelcomeName);
+  console.log("voiceFocusName:", voiceFocusName);
+
   var botAlias: string = "none";
 
   if (lexArnName) {
-    const arn = ssmParameter({ name: lexArnName });
-    arn.refresh();
-    botAlias = await arn.value as string;
+    try {
+      const arn = ssmParameter({ name: lexArnName });
+      arn.refresh();
+      botAlias = await arn.value as string;
+    } catch (error) {
+      console.log("no Lex ARN found", error);
+      botAlias = "";
+    }
   }
   if (botAlias) {
     const first3 = botAlias.slice(0, 12);
@@ -76,9 +86,14 @@ async function startBot(event: any) {
 
   var welcomeMsg = "";
   if (lexWelcomeName) {
-    const welcome = ssmParameter({ name: lexWelcomeName });
-    welcome.refresh();
-    welcomeMsg = await welcome.value as string;
+    try {
+      const welcome = ssmParameter({ name: lexWelcomeName });
+      welcome.refresh();
+      welcomeMsg = await welcome.value as string;
+    } catch (error) {
+      welcomeMsg = "Welcome!";
+      console.log("CONFIRATION ERROR: no welcome message found", error);
+    }
   }
   if (welcomeMsg) {
     startBotConversationAction.Parameters.Configuration.WelcomeMessages[0].Content = welcomeMsg;
@@ -89,9 +104,13 @@ async function startBot(event: any) {
 
   var voiceFocus = "false";
   if (voiceFocusName) {
-    const focus = ssmParameter({ name: voiceFocusName });
-    focus.refresh();
-    voiceFocus = await focus.value as string;
+    try {
+      const focus = ssmParameter({ name: voiceFocusName });
+      focus.refresh();
+      voiceFocus = await focus.value as string;
+    } catch (error) {
+      console.log("defaulting voiceFocus to off", error);
+    }
   }
   if (voiceFocus == "true" || voiceFocus == "on") {
     voiceFocusAction.Parameters.Enable = true;
